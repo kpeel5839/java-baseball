@@ -1,7 +1,7 @@
 package baseball.validator;
 
 public class NumberValidator {
-    
+
     // 여기서는 Number 인지만 확인하면 된다.
     public void validate(String input) {
         for (int index = 0; index < input.length(); index++) {
