@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class BallsValidator {
 
-    private final int CORRECT_SIZE = 3;
+    private final int BALLS_SIZE = 3;
 
     private final NumberValidator numberValidator;
 
@@ -22,7 +22,7 @@ public class BallsValidator {
     }
 
     private boolean isNotThreeDigit(String input) {
-        return input.length() != CORRECT_SIZE;
+        return input.length() != BALLS_SIZE;
     }
 
     private boolean digitIsDuplicate(String input) {
@@ -30,6 +30,6 @@ public class BallsValidator {
         for (int index = 0; index < input.length(); index++) {
             overlapChecker.add(input.charAt(index));
         }
-        return overlapChecker.size() != CORRECT_SIZE;
+        return overlapChecker.size() != BALLS_SIZE;
     }
 }
