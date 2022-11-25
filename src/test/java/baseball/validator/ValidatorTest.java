@@ -1,7 +1,6 @@
 package baseball.validator;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -30,5 +29,16 @@ public class ValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    
+    @ParameterizedTest
+    @ValueSource(strings = {"1", "2"})
+    void inputCorrectGameCommand(String input) {
+        validator.gameCommandValidate(input);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"3", "a", "asdfk1"})
+    void inputWrongGameCommand(String input) {
+        assertThatThrownBy(() -> validator.gameCommandValidate(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
